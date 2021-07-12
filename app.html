@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
-		<title>Hundred</title>
+		<title>CENTO</title>
 		<!-- Required meta tags -->
 		<meta charset="utf-8" />
 		<meta
@@ -37,7 +37,7 @@
 						alt="logo"
 						class="d-inline-block align-text-top"
 					/>
-					Hundred</a
+					CENTO</a
 				>
 				<button
 					class="navbar-toggler"
@@ -76,7 +76,61 @@
 
 		<!-- Main Section -->
 		<main class="flex-shrink-0">
-			<div class="container"></div>
+			<div class="container mt-5">
+				<div class="row row-cols-1 row-cols-lg-2">
+					<div class="col-lg-4 col border-2 border-end">
+						<h1>CENTO: A Coding Challenge</h1>
+						<h4 class="lead">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam
+							molestiae tempora aspernatur, deserunt esse atque quaerat. Beatae
+							quaerat quas debitis!
+						</h4>
+						<h2 class="mt-5 border-bottom border-2">Instructions</h2>
+						<p>
+							Enter a starting a value and an ending value. Press the button and
+							the values will appear
+						</p>
+					</div>
+					<div class="col-lg-8 col">
+						<div>
+							<h5>Enter values</h5>
+							<form class="row gy-2 gx-3">
+								<div class="col">
+									<input
+										type="number"
+										id="startValue"
+										class="form-control"
+										placeholder="Start Value"
+										value="0"
+										aria-label="Start Value"
+									/>
+								</div>
+								<div class="col">
+									<input
+										type="number"
+										id="endValue"
+										class="form-control"
+										placeholder="End Value"
+										value="100"
+										aria-label="End Value"
+									/>
+								</div>
+								<div class="col-12 d-flex justify-content-end">
+									<button id="btnSubmit" class="btn btn-lg btn-dark">
+										Display the Cento
+									</button>
+								</div>
+							</form>
+							<h2 class="mt-5 border-bottom border-2">Results</h2>
+							<table class="table table-striped table-sm">
+								<tbody id="results">
+									<!-- Results to be inserted -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 
 		<!-- Footer Section -->
@@ -129,6 +183,7 @@
 								></a>
 							</div>
 						</div>
+						`
 					</div>
 				</div>
 			</div>
