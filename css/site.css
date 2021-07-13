@@ -29,12 +29,16 @@ h5,
 h6 {
 	color: var(--primary-color);
 }
-
-code[class*="language-"],
-pre[class*="language-"] {
+/* Prism styling */
+code[class="language-"],
+pre[class="language-"] {
 	white-space: pre-wrap;
+
 	word-break: break-all;
+
 	word-wrap: break-word;
+
+	font-size: 1.5rem;
 }
 
 /* Nav Styling */
@@ -60,6 +64,18 @@ nav {
 
 .checklist li i {
 	color: var(--secondary-color);
+}
+main h3 {
+	font-weight: 200;
+}
+
+main h3 span {
+	font-weight: normal;
+}
+
+/* Styling for odd values */
+.odd {
+	font-weight: bold;
 }
 
 /* Footer Styling */

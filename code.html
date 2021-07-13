@@ -85,22 +85,95 @@
 					<div class="col-lg-8">
 						<pre class="line-numbers">
                             <code class="language-javascript">
-                             function helloWorld() {
-                                 console.log("hello");
-                                 return {
-                                     title: "Harry",
-                                     author: "JK",
-                                     copies: 10000000
-                                 }
-                             }
+								const getValues = () => {
+									// Get input values from the page
+									let startValue = document.getElementById("startValue").value;
+									let endValue = document.getElementById("endValue").value;
+								
+									// Convert values to number type
+									startValue = parseInt(startValue);
+									endValue = parseInt(endValue);
+								
+									// Validate inputs
+									if (
+										Number.isInteger(startValue) &&
+										Number.isInteger(endValue) &&
+										startValue < endValue
+									) {
+										// Call generateNumbers
+										const numbers = generateNumbers(startValue, endValue);
+										// Call displayNumbers
+										displayNumbers(numbers);
+									} else {
+										const error = `<div class="alert alert-danger" role="alert">
+										You can only enter numbers and the start value cannot be larger than the end value!
+									  </div>`;
+										document.getElementById("results").innerHTML = error;
+									}
+								};
+								
+								const generateNumbers = (startValue, endValue) => {
+									// Init numbers array
+									const numbers = [];
+								
+									for (let i = startValue; i <= endValue; i++) {
+										// Add values in input range to numbers
+										numbers.push(i);
+									}
+									return numbers;
+								};
+								
+								const displayNumbers = (numbers) => {
+									// Init className as even
+									let className = "even";
+									// Init rows to be inserted into the DOM
+									let templateRows = "";
+								
+									for (let number of numbers) {
+										// Check if number is even or odd
+										if (number % 2 !== 0) {
+											className = "odd";
+										} else {
+											className = "even";
+										}
+										// Concat templateRows with a row, corresponding className and current number
+										// Template Literals do not render correctly render within prism
+										templateRows += `<tr><td class=${className}>${number}</td></tr>`;
+									}
+									// Insert templateRows into the DOM as a child of #results
+									document.getElementById("results").innerHTML = templateRows;
+								};
+								
+								// Listen for button click event
+								document.getElementById("btnSubmit").addEventListener("click", (e) => {
+									e.preventDefault();
+									// Call getValues
+									getValues();
+								});
+								
                             </code>
                         </pre>
 					</div>
 					<div class="col-lg-4">
-						<p>The code is structured in one function.</p>
-						<h5>Hello World</h5>
+						<p>The code is structured in multiple functions</p>
+						<h5>getValues</h5>
 						<p>
-							Hello World is a function that displays a message of hello world
+							getValues fetches the input values from the DOM and validates the
+							inputs. If they are valid, it calls displayNumbers, otherwise, it
+							displays an error to the UI.
+						</p>
+						<h5>generateNumbers</h5>
+						<p>
+							generateNumbers creates an array of numbers based on the starting
+							value and ending value.
+						</p>
+						<h5>displayNumbers</h5>
+						<p>
+							dispalyNumbers displays each value returned from getValues in a
+							table format. Each value is assigned to a row, which contains the
+							data, and each row is appended into a variable called
+							templateRows. templateRows is then inserted into the DOM for the
+							user to view
 						</p>
 					</div>
 				</div>
